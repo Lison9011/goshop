@@ -91,6 +91,7 @@ public class ValidationCodeServlet extends HttpServlet {
         Captcha captcha = configurableCaptchaService.getCaptcha();
         // 取得验证码字符串放入Session
         String validationCode = captcha.getChallenge();
+        System.out.println("111111111111111%"+validationCode);
         //session.setAttribute(ValidationCodeServlet.VALIDATION_CODE, validationCode);
         jedisClient.set(ValidationCodeServlet.VALIDATION_CODE+session.getId(),validationCode);
         // 取得验证码图片并输出
